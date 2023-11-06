@@ -21,5 +21,5 @@ public class DaoMySQL {
     }
     public DaoMySQL() throws SQLException {
         conectar();
-    }
+    } 
 }
