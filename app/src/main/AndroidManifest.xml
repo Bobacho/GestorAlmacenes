@@ -17,34 +17,38 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.GestorAlmacenes"
             tools:targetApi="31">
+        <activity
+                android:name=".Transaccion"
+                android:exported="false"/>
+
         <meta-data
                 android:name="com.google.android.actions"
                 android:resource="@xml/file_paths"/>
 
         <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.gestoralmacenes.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="com.example.gestoralmacenes.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
             <meta-data
                     android:name="android.support.FILE_PROVIDER_PATHS"
                     android:resource="@xml/file_paths"/>
         </provider>
 
         <activity
-                android:name=".Camara"
+                android:name=".activities.Camara"
                 android:exported="false"
                 android:parentActivityName=".MainActivity"/>
         <activity
-                android:name=".Registro"
+                android:name=".activities.Registro"
                 android:exported="false"
                 android:parentActivityName=".MainActivity"/>
         <activity
-                android:name=".ProductosActivity"
+                android:name=".activities.ProductosActivity"
                 android:exported="false"
-                android:parentActivityName=".Menu"/>
+                android:parentActivityName=".activities.Menu"/>
         <activity
-                android:name=".Menu"
+                android:name=".activities.Menu"
                 android:exported="false"
                 android:parentActivityName=".MainActivity"/>
         <activity

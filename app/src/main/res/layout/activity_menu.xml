@@ -5,12 +5,39 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Menu">
-    <ScrollView
+        tools:context=".activities.Menu">
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:contentDescription="@string/app_name">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical" android:id="@+id/usuariosTabla"
-        />
-    </ScrollView>
+            android:layout_height="match_parent">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/navigationButton"
+                app:icon="@android:drawable/ic_menu_agenda"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:onClick="startNavigate"/>
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:contentDescription="@string/app_name"
+                android:id="@+id/scrollView2"
+                android:visibility="visible"
+        >
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/transaccionesTabla">
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView android:layout_width="wrap_content"
+                                                           android:layout_height="match_parent"
+                                                           app:headerLayout="@layout/header"
+                                                           android:id="@+id/navigationView"
+                                                           android:visibility="invisible"
+                                                           app:layout_constraintStart_toStartOf="parent"
+                                                           app:layout_constraintBottom_toBottomOf="parent"
+                                                           app:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,20 +1,16 @@
-package com.example.gestoralmacenes;
+package com.example.gestoralmacenes.activities;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.gestoralmacenes.dao.DaoMySQL;
-import com.example.gestoralmacenes.dao.DaoUsuario;
-import com.example.gestoralmacenes.models.Usuario;
+import com.example.gestoralmacenes.R;
+import com.example.gestoralmacenes.models.personas.Usuario;
 import org.signal.argon2.*;
 
 
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.regex.Pattern;
 
@@ -45,10 +41,10 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
-        nombreUsuarioView=(EditText) findViewById(R.id.nombreUsuarioInput);
-        contraseñaView=(EditText) findViewById(R.id.usuarioPasswordInput);
-        idView=(EditText) findViewById(R.id.usuarioIdInput);
+        setContentView(com.example.gestoralmacenes.R.layout.activity_registro);
+        nombreUsuarioView=(EditText) findViewById(com.example.gestoralmacenes.R.id.nombreUsuarioInput);
+        contraseñaView=(EditText) findViewById(com.example.gestoralmacenes.R.id.usuarioPasswordInput);
+        idView=(EditText) findViewById(com.example.gestoralmacenes.R.id.usuarioIdInput);
         idEmpleadoView=(EditText) findViewById(R.id.usuarioIdEmpleadoInput);
         Log.d("Sentencia",getIntent().getStringExtra("Sentencia"));
         procesarSentencia();
@@ -58,7 +54,7 @@ public class Registro extends AppCompatActivity {
         return password;
     }
     public void ingresarValues(View view) throws SQLException, Argon2Exception {
-        DaoUsuario connector=new DaoUsuario(Registro.this);
+        /*DaoUsuario connector=new DaoUsuario(Registro.this);
         Log.d("primer",Long.parseLong(
                 idView.getText().toString())+","
             +nombreUsuarioView.getText().toString()+","+
@@ -69,11 +65,11 @@ public class Registro extends AppCompatActivity {
                 Long.parseLong(idView.getText().toString()),
                 nombreUsuarioView.getText().toString(),
                 password,
-                Long.parseLong(idEmpleadoView.getText().toString())
+
         );
         Log.d("valores",connector.obtenerUsuariosSQLite().toString());
         connector.agregarUsuarioSQLite(usuario);
         Intent i=new Intent(this, MainActivity.class);
-        startActivity(i);
+        startActivity(i);*/
     }
 }

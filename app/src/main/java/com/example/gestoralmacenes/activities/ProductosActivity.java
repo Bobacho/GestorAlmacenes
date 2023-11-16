@@ -1,9 +1,9 @@
-package com.example.gestoralmacenes;
+package com.example.gestoralmacenes.activities;
 
 import android.widget.ScrollView;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.gestoralmacenes.R;
 import com.example.gestoralmacenes.dao.DaoUsuario;
 
 import java.sql.SQLException;

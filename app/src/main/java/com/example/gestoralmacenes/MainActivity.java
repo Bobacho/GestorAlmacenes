@@ -7,11 +7,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.gestoralmacenes.activities.Camara;
+import com.example.gestoralmacenes.activities.Menu;
 import com.example.gestoralmacenes.dao.DaoUsuario;
-import com.example.gestoralmacenes.models.Usuario;
+import com.example.gestoralmacenes.models.personas.Usuario;
 import org.signal.argon2.*;
 
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 if (usuario.getNombre().equals(usuarioInput.getText().toString()) && usuario.getContraseña().equals(contraseñaInput.getText().toString())) {
                     encontrado=true;
                     Intent i = new Intent(this, Menu.class);
+                    i.putExtra("usuario", usuario.getNombre());
+                    i.putExtra("tipoUsuario", usuario.getTipoUsuario());
                     startActivity(i);
                 }
             }

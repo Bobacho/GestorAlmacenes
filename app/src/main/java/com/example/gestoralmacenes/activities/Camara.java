@@ -1,4 +1,4 @@
-package com.example.gestoralmacenes;
+package com.example.gestoralmacenes.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,24 +11,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.core.content.FileProvider;
+import com.example.gestoralmacenes.R;
 import com.example.gestoralmacenes.dao.DaoUsuario;
 import com.google.android.gms.vision.Frame;
-import com.google.android.gms.vision.text.Text;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class Camara extends AppCompatActivity {
     Button camara;

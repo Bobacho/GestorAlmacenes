@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="bottom">
+
+    <Button
+            android:layout_width="116dp"
+            android:layout_height="wrap_content" android:id="@+id/returnMenu"
+            app:icon="@drawable/baseline_keyboard_return_24" android:onClick="returnMenu"/>
+    <ImageView
+            android:layout_width="252dp"
+            android:layout_height="175dp" app:srcCompat="@drawable/baseline_account_box_24"
+            android:id="@+id/imageView"/>
+    <TextView
+            android:text="Bienvenido a tu cuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/usuario" android:fontFamily="sans-serif-condensed"
+            android:textSize="20sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/tipoUsuario"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+                android:text="Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/button5"/>
+        <Button
+                android:text="Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/button3"/>
+        <Button
+                android:text="Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/button2"/>
+    </LinearLayout>
+</LinearLayout>
