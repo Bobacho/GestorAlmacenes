@@ -16,6 +16,7 @@ public class TransaccionExterna extends Transaccion{
         this.transacciones = transacciones;
         this.documento = documento;
         this.registrosContable = registrosContable;
+        TipoTransaccion="Externa";
     }
 
     public Documento getDocumento() {
@@ -40,5 +41,17 @@ public class TransaccionExterna extends Transaccion{
 
     public void setTransacciones(List<TransaccionExternaUnitaria> transacciones) {
         this.transacciones = transacciones;
+    }
+
+    @Override
+    public String toString() {
+        return "TransaccionExterna{" +
+                "transacciones=" + transacciones +
+                ", documento=" + documento +
+                ", registrosContable=" + registrosContable +
+                ", FechaInicio=" + FechaInicio +
+                ", FechaFin=" + FechaFin +
+                ", TipoTransaccion='" + TipoTransaccion + '\'' +
+                '}';
     }
 }

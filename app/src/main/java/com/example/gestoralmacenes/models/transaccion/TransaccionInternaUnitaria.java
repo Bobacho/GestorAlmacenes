@@ -22,7 +22,7 @@ public class TransaccionInternaUnitaria {
 
     @Override
     public String toString() {
-        return "TransaccionInternaUnitaria{" +
+        return "DETALLES{" +
                 "Origen=" + Origen +
                 ", Destino=" + Destino +
                 ", BloqueOrigen=" + BloqueOrigen +

@@ -25,6 +25,19 @@ public class Producto {
         this.tarifarioActual = tarifarioActual;
     }
 
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "UnidadMedida='" + UnidadMedida + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", Nombre='" + Nombre + '\'' +
+                ", Descripcion='" + Descripcion + '\'' +
+                ", Garantia=" + Garantia +
+                ", tarifarios=" + tarifarios +
+                ", tarifarioActual=" + tarifarioActual +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

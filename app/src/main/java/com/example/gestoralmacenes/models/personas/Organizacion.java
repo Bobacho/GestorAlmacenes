@@ -17,6 +17,17 @@ public class Organizacion {
         Sector = sector;
     }
 
+    @Override
+    public String toString() {
+        return "Organizacion{" +
+                "Nombre='" + Nombre + '\'' +
+                ", Ruuc='" + Ruuc + '\'' +
+                ", TipoOrganizacion='" + TipoOrganizacion + '\'' +
+                ", Tamaño=" + Tamaño +
+                ", Sector='" + Sector + '\'' +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

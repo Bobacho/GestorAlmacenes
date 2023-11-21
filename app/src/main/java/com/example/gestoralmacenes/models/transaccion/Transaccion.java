@@ -6,11 +6,15 @@ public class Transaccion implements Comparable<Transaccion>{
     Long Id;
     LocalDate FechaInicio;
     LocalDate FechaFin;
-
+    String TipoTransaccion;
     public Transaccion(Long id, LocalDate fechaInicio, LocalDate fechaFin) {
         Id = id;
         FechaInicio = fechaInicio;
         FechaFin = fechaFin;
+    }
+
+    public String getTipoTransaccion() {
+        return TipoTransaccion;
     }
 
     public Long getId() {

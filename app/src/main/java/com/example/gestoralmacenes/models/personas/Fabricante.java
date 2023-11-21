@@ -19,6 +19,16 @@ public class Fabricante {
         this.productos = productos;
     }
 
+    @Override
+    public String toString() {
+        return "Fabricante{" +
+                "Nombre='" + Nombre + '\'' +
+                ", Ubicacion='" + Ubicacion + '\'' +
+                ", Contacto='" + Contacto + '\'' +
+                ", productos=" + productos +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

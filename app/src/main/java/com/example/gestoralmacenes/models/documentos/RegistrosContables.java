@@ -22,6 +22,18 @@ public class RegistrosContables {
         this.cuentasContables = cuentasContables;
     }
 
+    @Override
+    public String toString() {
+        return "RegistrosContables{" +
+                "NroOrden='" + NroOrden + '\'' +
+                ", Año=" + Año +
+                ", fechasContables=" + fechasContables +
+                ", descripciones=" + descripciones.toString() +
+                ", importes=" + importes.toString() +
+                ", cuentasContables=" + cuentasContables.toString() +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

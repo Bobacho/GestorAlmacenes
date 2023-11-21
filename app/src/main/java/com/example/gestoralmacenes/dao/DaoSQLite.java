@@ -14,7 +14,7 @@ public class DaoSQLite extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql="""
+        String []sql= {"""
             CREATE TABLE Usuario(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             NombreUsuario TEXT NOT NULL,
@@ -25,7 +25,8 @@ public class DaoSQLite extends SQLiteOpenHelper {
             TipoActividad TEXT CHECK (TipoActividad IN('Activo','Inactivo','Bloqueado')) NOT NULL,
             DireccionIp TEXT NOT NULL
             );
-            CREATE TABLE Accesos(
+        """, """
+    CREATE TABLE Accesos(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             IdUsuario INTEGER NOT NULL,
             FechaIngreso DATE NOT NULL,
@@ -35,18 +36,25 @@ public class DaoSQLite extends SQLiteOpenHelper {
             Estado TEXT CHECK(Estado IN('Nombre Incorrecto','Contraseña Incorrecta','Nombre y contraseña incorrecta','Numero de intentos excedidos')) NOT NULL,
             Foreign Key(IdUsuario) REFERENCES Usuario(Id)
             );
-            CREATE TABLE LicendiaDeFuncionamiento(
+    """,
+                """
+CREATE TABLE LicenciaDeFuncionamiento(
             NumeroLicencia INTEGER PRIMARY KEY AUTOINCREMENT,
             Municipalidad TEXT NOT NULL,
             FechaEmision DATE NOT NULL
             );
-            Create TABLE Fabricante(
+    """,
+                """
+Create TABLE Fabricante(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             Nombre TEXT NOT NULL,
             Ubicacion TEXT NOT NULL,
             Contacto TEXT NOT NULL
             );
-            CREATE TABLE Contenedor(
+
+""",
+                """
+                    CREATE TABLE Contenedor(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             CapacidadMaxima INTEGER NOT NULL,
             CapacidadActual INTEGER NOT NULL,
@@ -55,14 +63,18 @@ public class DaoSQLite extends SQLiteOpenHelper {
             Profundidad REAL NOT NULL,
             Peso REAL NOT NULL
             );
+        """,
+                """
             CREATE TABLE Almacen(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             NumeroEstanteria INTEGER NOT NULL,
             Ubicacion TEXT NOT NULL,
             nroLicencia INTEGER NOT NULL,
-            FOREIGN KEY (nroLicencia) REFERENCES LicendiaDeFuncionamiento(NumeroLicencia)
+            FOREIGN KEY (nroLicencia) REFERENCES LicenciaDeFuncionamiento(NumeroLicencia)
             );
-            CREATE TABLE Producto(
+""",
+                """
+                CREATE TABLE Producto(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             Nombre TEXT NOT NULL,
             Descripcion TEXT NOT NULL,
@@ -71,24 +83,30 @@ public class DaoSQLite extends SQLiteOpenHelper {
             IdFabricante INTEGER NOT NULL,
             IdContenedor INTEGER NOT NULL,
             Unidad_Medida TEXT CHECK(Unidad_Medida IN ('Kilogramos','Litros','Unidades','Cajas','Paquetes','Bolsas','Metros','Centimetros','Milimetros','Pulgadas','Galones','Libras','Onzas')) NOT NULL,
-            Tipo TEXT CHECK(Tipo IN ('Perecedero','No Perecedero')) NOT NULL
+            Tipo TEXT CHECK(Tipo IN ('Perecedero','No Perecedero')) NOT NULL,
             FOREIGN KEY (IdAlmacen) REFERENCES Almacen(Id),
             FOREIGN KEY (IdFabricante) REFERENCES Fabricante(Id),
             FOREIGN KEY (IdContenedor) REFERENCES Contenedor(Id)
             );
+            """,
+                """
             CREATE TABLE Estanteria(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             IdAlmacen INTEGER NOT NULL,
             NroLote TEXT NOT NULL,
             Categoria TEXT CHECK( Categoria IN ('Alimentos y bebidas','Productos de cuidado personal','Productos para el hogar','Productos de conveniencia','Productos de cuidado de mascotas','Productos congelados','Bebidas alcoholicas'
-            ,'Productos de panaderia y reposteria'))
+            ,'Productos de panaderia y reposteria','Electronicos'))
             );
-            CREATE TABLE BloqueEstanteria-Contenedor(
+            """,
+            """
+                CREATE TABLE BloqueEstanteriaContenedor(
             IdBloqueEstanteria INTEGER NOT NULL,
             IdContenedor INTEGER NOT NULL,
             FOREIGN KEY (IdBloqueEstanteria) REFERENCES BloqueEstanteria(Id),
             FOREIGN KEY (IdContenedor) REFERENCES Contenedor(Id)
             );
+            """,
+                """
             CREATE TABLE BloqueEstanteria(
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             Largo REAL NOT NULL,
@@ -102,6 +120,8 @@ public class DaoSQLite extends SQLiteOpenHelper {
             Cara INTEGER NOT NULL,
             FOREIGN KEY (IdEstanteria) REFERENCES Estanteria(Id)
             );
+            """,
+                """
             CREATE TABLE Empleado(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             Nombre TEXT NOT NULL,
@@ -110,12 +130,15 @@ public class DaoSQLite extends SQLiteOpenHelper {
             IdUsuario INTEGER NOT NULL,
             IdAlmacen INTEGER NOT NULL,
             DNI TEXT NOT NULL,
-            NivelEstudio TEXT CHECK(Rango IN('Basico','Bachiller','Tecnico','Profesional','Doctorado'))
+            NivelEstudio TEXT CHECK(NivelEstudio IN('Basico','Bachiller','Tecnico','Profesional','Doctorado')),
             Telefono TEXT NOT NULL,
             Correo TEXT NOT NULL,
             FOREIGN KEY (IdUsuario) REFERENCES Usuario(Id),
             FOREIGN KEY (IdAlmacen) REFERENCES Almacen(Id)
             );
+            
+            """,
+                """
             CREATE TABLE Proveedor(
             Id Integer Primary Key AUTOINCREMENT,
             Nombre TEXT NOT NULL,
@@ -123,9 +146,10 @@ public class DaoSQLite extends SQLiteOpenHelper {
             Contacto TEXT NOT NULL,
             TelefonoContacto TEXT NOT NULL,
             TelefonoProveedor TEXT NOT NULL,
-            GiroProveedor TEXT NOT NULL
+            GiroProveedor TEXT NOT NULL,
             RUUC TEXT NOT NULL
-            );
+            );""",
+                """
             CREATE TABLE Organizacion(
             Id Integer Primary Key AUTOINCREMENT,
             Nombre TEXT NOT NULL,
@@ -134,6 +158,8 @@ public class DaoSQLite extends SQLiteOpenHelper {
             NroEmpleados Integer NOT NULL,
             Sector TEXT CHECK(Sector IN('Primario','Secundario','Terciario')) NOT NULL
             );
+            """,
+                """
             CREATE TABLE Cliente(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             Nombre TEXT NOT NULL,
@@ -145,6 +171,8 @@ public class DaoSQLite extends SQLiteOpenHelper {
             IdOrganizacion INTEGER NOT NULL,
             FOREIGN KEY (IdOrganizacion) REFERENCES Organizacion(Id)
             );
+            """,
+                """
             CREATE TABLE Emisor(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             IdCliente INTEGER NOT NULL,
@@ -155,13 +183,16 @@ public class DaoSQLite extends SQLiteOpenHelper {
             FOREIGN KEY (idEmpleado) REFERENCES Empleado(Id),
             FOREIGN KEY (IdProveedor) REFERENCES Proveedor(Id)
             );
+            """,
+                """
             CREATE TABLE Receptor(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             IdCliente INTEGER NOT NULL,
             IdEmpleado INTEGER NOT NULL,
             IdProveedor INTEGER NOT NULL,
-            TipoReceptor TEXT CHECK(TipoReceptor IN('Cliente','Proveedor','Trabajador')) NOT NULL,
-            );
+            TipoReceptor TEXT CHECK(TipoReceptor IN('Cliente','Proveedor','Trabajador')) NOT NULL
+            );""",
+                """
             CREATE TABLE Documento(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             NroOrden Integer NOT NULL,
@@ -175,36 +206,40 @@ public class DaoSQLite extends SQLiteOpenHelper {
             FOREIGN KEY (IdEmisor) REFERENCES Emisor(Id),
             FOREIGN KEY (IdReceptor) REFERENCES Receptor(Id)
             );
-            CREATE TABLE RegistroContable.CAB(
+            """,
+                """
+            CREATE TABLE RegistroContableCAB(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             NroOrden Integer NOT NULL,
-            Año DATE NOT NULL,
+            Año DATE NOT NULL
             );
-            CREATE TABLE RegistroContable.DET(
+            ""","""
+            CREATE TABLE RegistroContableDET(
             Id Integer PRIMARY KEY AUTOINCREMENT,
-            IdRegistroContable.CAB INTEGER NOT NULL,
-            FOREIGN KEY (IdRegistroContable.CAB) REFERENCES RegistroContable.CAB(Id)
-            );
+            IdRegistroContableCAB INTEGER NOT NULL,
+            FOREIGN KEY (IdRegistroContableCAB) REFERENCES RegistroContableCAB(Id)
+            );""","""
             CREATE TABLE FechaContable(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             Fecha DATE NOT NULL,
-            IdRegistroContable.DET INTEGER NOT NULL,
-            FOREIGN KEY (IdRegistroContable.DET) REFERENCES RegistroContable.DET(Id)
-            );
+            IdRegistroContableDET INTEGER NOT NULL,
+            FOREIGN KEY (IdRegistroContableDET) REFERENCES RegistroContableDET(Id)
+            );""","""
             CREATE TABLE Descripcion(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             Valor TEXT NOT NULL,
-            IdRegistroContable.DET INTEGER NOT NULL,
-            FOREIGN KEY (IdRegistroContable.DET) REFERENCES RegistroContable.DET(Id)
-            );
+            IdRegistroContableDET INTEGER NOT NULL,
+            FOREIGN KEY (IdRegistroContableDET) REFERENCES RegistroContableDET(Id)
+            );""","""
             CREATE TABLE Cuenta(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             TipoCuenta TEXT CHECK(TipoCuenta IN('Debe','Haber')) NOT NULL,
             Valor REAL NOT NULL,
-            IdRegistroContable.DET INTEGER NOT NULL,
-            FOREIGN KEY (IdRegistroContable.DET) REFERENCES RegistroContable.DET(Id)
-            );
-            CREATE TABLE TransaccionEXT.CAB(
+            IdRegistroContableDET INTEGER NOT NULL,
+            FOREIGN KEY (IdRegistroContableDET) REFERENCES RegistroContableDET(Id)
+            );""",
+            """
+            CREATE TABLE TransaccionEXTCAB(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             IdEmisor INTEGER NOT NULL,
             IdReceptor INTEGER NOT NULL,
@@ -213,49 +248,49 @@ public class DaoSQLite extends SQLiteOpenHelper {
             TipoTransaccion TEXT CHECK(TipoTransaccion IN ('Entrada','Salida')) NOT NULL,
             FechaPrevista DATE NOT NULL,
             EsTransaccionFinanciera BOOLEAN NOT NULL,
-            IdRegistroContable.CAB INTEGER NOT NULL,
+            IdRegistroContableCAB INTEGER NOT NULL,
             FOREIGN KEY (IdEmisor) REFERENCES Emisor(Id),
             FOREIGN KEY (IdReceptor) REFERENCES Receptor(Id),
             FOREIGN KEY (IdDocumento) REFERENCES Documento(Id),
-            FOREIGN KEY (IdRegistroContable.CAB) REFERENCES RegistroContable.CAB(Id)
-            );
-            CREATE TABLE TransaccionEXT.DET(
+            FOREIGN KEY (IdRegistroContableCAB) REFERENCES RegistroContableCAB(Id)
+            );""","""
+            CREATE TABLE TransaccionEXTDET(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             Secuencia INTEGER NOT NULL,
-            IdTransaccionEXT.CAB INTEGER NOT NULL,
+            IdTransaccionEXTCAB INTEGER NOT NULL,
             Cantidad INTEGER NOT NULL,
             Unidad_medida TEXT CHECK(Unidad_medida IN('Kilogramos','Litros','Unidades','Cajas','Paquetes','Bolsas','Metros','Centimetros','Milimetros','Pulgadas','Galones','Libras','Onzas')) NOT NULL,
             Longitud REAL NOT NULL,
             Profundidad REAL NOT NULL,
             Altura REAL NOT NULL,
             IdContenedor INTEGER NOT NULL,
-            FOREIGN KEY (IdTransaccionEXT.CAB) REFERENCES TransaccionEXT.CAB(Id),
+            FOREIGN KEY (IdTransaccionEXTCAB) REFERENCES TransaccionEXTCAB(Id),
             FOREIGN KEY (IdContenedor) REFERENCES Contenedor(Id)
-            );
-            CREATE TABLE TransaccionINT.CAB(
+            );""","""
+            CREATE TABLE TransaccionINTCAB(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             IdAlmacen INTEGER NOT NULL,
             IdEncargado INTEGER NOT NULL,
             FechaInicio DATE NOT NULL,
             FechaFinalizado DATE NOT NULL,
-            Foreign Key (IdAlmacen) REFERENCES Almacen(Id),
-            );
-            CREATE TABLE TransaccionINT.DET(
+            Foreign Key (IdAlmacen) REFERENCES Almacen(Id)
+            );""","""
+            CREATE TABLE TransaccionINTDET(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             Secuencia INTEGER NOT NULL,
-            IdTransaccionINT.CAB INTEGER NOT NULL,
+            IdTransaccionINTCAB INTEGER NOT NULL,
             IdEstanteriaOrigen INTEGER NOT NULL,
             IdContenedor INTEGER NOT NULL,
             IdBloqueEstanteriaOrigen INTEGER NOT NULL,
             IdBloqueEstanteriaDestino INTEGER NOT NULL,
             IdEstanteriaDestino INTEGER NOT NULL,
-            FOREIGN KEY (IdTransaccionINT.CAB) REFERENCES TransaccionINT.CAB(Id),
+            FOREIGN KEY (IdTransaccionINTCAB) REFERENCES TransaccionINTCAB(Id),
             FOREIGN KEY (IdEstanteriaOrigen) REFERENCES Estanteria(Id),
             FOREIGN KEY (IdContenedor) REFERENCES Contenedor(Id),
             FOREIGN KEY (IdBloqueEstanteriaOrigen) REFERENCES BloqueEstanteria(Id),
             FOREIGN KEY (IdBloqueEstanteriaDestino) REFERENCES BloqueEstanteria(Id),
             FOREIGN KEY (IdEstanteriaDestino) REFERENCES Estanteria(Id)
-            );
+            );""","""
             CREATE TABLE Tarifario(
             Id Integer PRIMARY KEY AUTOINCREMENT,
             IdProducto INTEGER NOT NULL,
@@ -266,86 +301,133 @@ public class DaoSQLite extends SQLiteOpenHelper {
             FechaVencimiento DATE NOT NULL,
             FOREIGN KEY (IdProducto) REFERENCES Producto(Id)
             );
-        """;
-        sqLiteDatabase.execSQL(sql);
+            """
+        };
+
+        for(String query:sql)
+        {
+            sqLiteDatabase.execSQL(query);
+        }
         sqLiteDatabase.execSQL("insert into Usuario values(1,'admin','admin','Administrador','admin',date('now'),'Activo','127.0.0.1')");
-        //sqLiteDatabase.execSQL(generarValores());
+        for(String insert:generarValores())
+        {
+            sqLiteDatabase.execSQL(insert);
+        }
+
     }
-    private String generarValores()
+    private String[] generarValores()
     {
-        return """
+        return new String[]{"""
                 -- Usuario
-                INSERT INTO Usuario (NombreUsuario, Contraseña, TipoUsuario, Nombre, FechaRegistro, TipoActividad, DireccionIp)
-                VALUES ('john_doe', 'SecurePass123', 'Empleado', 'John Doe', '2023-01-15', 'Activo', '192.168.0.1');
-                                
+                INSERT INTO Usuario (Id, NombreUsuario, Contraseña, TipoUsuario, Nombre, FechaRegistro, TipoActividad, DireccionIp)
+                VALUES (2, 'john_doe', 'SecurePass123', 'Empleado', 'John Doe', '2023-01-15', 'Activo', '192.168.0.1');
+                """, """                
                 -- Accesos
-                INSERT INTO Accesos (IdUsuario, FechaIngreso, FechaSalida, NombreInput, ContraseñaInput, Estado)
-                VALUES (1, '2023-01-15 08:30:00', '2023-01-15 17:00:00', 'Login', 'P@ssw0rd', 'Nombre y contraseña incorrecta');
-                                
+                INSERT INTO Accesos (Id, IdUsuario, FechaIngreso, FechaSalida, NombreInput, ContraseñaInput, Estado)
+                VALUES (1, 1, '2023-01-15 08:30:00', '2023-01-15 17:00:00', 'Login', 'P@ssw0rd', 'Nombre y contraseña incorrecta');
+                 """, """                 
                 -- LicenciaDeFuncionamiento
-                INSERT INTO LicendiaDeFuncionamiento (Municipalidad, FechaEmision)
-                VALUES ('Municipalidad Central', '2023-01-10');
-                                
-                -- Fabricante
-                INSERT INTO Fabricante (Nombre, Ubicacion, Contacto)
-                VALUES ('TechGadget Inc.', 'Silicon Valley', 'Steve Jobs');
-                                
-                -- Contenedor
-                INSERT INTO Contenedor (CapacidadMaxima, CapacidadActual, Largo, Altura, Profundidad, Peso)
-                VALUES (500, 200, 3.5, 2.0, 2.0, 150);
-                                
+                INSERT INTO LicenciaDeFuncionamiento (NumeroLicencia, Municipalidad, FechaEmision)
+                VALUES (1 ,'Municipalidad Central', '2023-01-10');
+                 """, """                 
                 -- Almacen
-                INSERT INTO Almacen (NumeroEstanteria, Ubicacion, nroLicencia)
-                VALUES (101, 'Depósito A1', 1);
-                                
-                -- Producto
-                INSERT INTO Producto (Nombre, Descripcion, Garantia, IdAlmacen, IdFabricante, IdContenedor, Unidad_Medida, Tipo)
-                VALUES ('Smartphone X', 'Potente y elegante', 1, 1, 1, 1, 'Unidades', 'No Perecedero');
-                                
+                INSERT INTO Almacen (Id , NumeroEstanteria, Ubicacion, nroLicencia)
+                VALUES (1, 101, 'Depósito A1', 1);
+                 """, """
                 -- Estanteria
                 INSERT INTO Estanteria (IdAlmacen, NroLote, Categoria)
-                VALUES (1, 'Lote A1', 'Electrónicos');
-                                
+                VALUES (1, 'Lote A1', 'Productos para el hogar');
+                    """, """                 
+                -- Fabricante
+                INSERT INTO Fabricante (Id, Nombre, Ubicacion, Contacto)
+                VALUES (1, 'TechGadget Inc.', 'Silicon Valley', 'Steve Jobs');
+                """, """                  
+                -- Contenedor
+                INSERT INTO Contenedor (Id, CapacidadMaxima, CapacidadActual, Largo, Altura, Profundidad, Peso)
+                VALUES (1, 500, 200, 3.5, 2.0, 2.0, 150);
+                 """, """                
+                -- Producto
+                INSERT INTO Producto (Id, Nombre, Descripcion, Garantia, IdAlmacen, IdFabricante, IdContenedor, Unidad_Medida, Tipo)
+                VALUES (1, 'Smartphone X', 'Potente y elegante', 1, 1, 1, 1, 'Unidades', 'No Perecedero');
+                   """, """                          
                 -- BloqueEstanteria
-                INSERT INTO BloqueEstanteria (Largo, Altura, Profundidad, PesoMaximo, PesoActual, IdEstanteria, Fila, Columna, Cara)
-                VALUES (3.0, 1.8, 1.8, 80, 40, 1, 1, 1, 1);
-                                
-                -- Empleado
+                INSERT INTO BloqueEstanteria (Id, Largo, Altura, Profundidad, PesoMaximo, PesoActual, IdEstanteria, Fila, Columna, Cara)
+                VALUES (1, 3.0, 1.8, 1.8, 80, 40, 1, 1, 1, 1);
+                 """, """
                 INSERT INTO Empleado (Nombre, Rango, DescripcionResponsabilidad, IdUsuario, IdAlmacen, DNI, NivelEstudio, Telefono, Correo)
-                VALUES ('Sara Johnson', 'Trabajador', 'Gestión de inventario', 1, 1, '98765432', 'Técnico', '987-654-3210', 'sara.j@example.com');
-                                
+                VALUES ('NombreEmpleado', 'Trabajador', 'Descripción de responsabilidad', 1, 2, '12345678', 'Bachiller', '123-456-7890', 'correo@ejemplo.com');
+                 """, """                 
                 -- Proveedor
-                INSERT INTO Proveedor (Nombre, Ubicacion, Contacto, TelefonoContacto, TelefonoProveedor, GiroProveedor, RUUC)
-                VALUES ('Gadget Supplier', 'Asia', 'John Supplier', '123-456-7890', '987-654-3210', 'Electrónicos', '123456789-3');
-                                
+                INSERT INTO Proveedor (Id, Nombre, Ubicacion, Contacto, TelefonoContacto, TelefonoProveedor, GiroProveedor, RUUC)
+                VALUES (1, 'Gadget Supplier', 'Asia', 'John Supplier', '123-456-7890', '987-654-3210', 'Electrónicos', '123456789-3');
+                 """, """                 
                 -- Organizacion
-                INSERT INTO Organizacion (Nombre, RUUC, TipoOrganizacion, NroEmpleados, Sector)
-                VALUES ('TechCorp', '123456789-4', 'SA', 5000, 'Secundario');
-                                
+                INSERT INTO Organizacion (Id, Nombre, RUUC, TipoOrganizacion, NroEmpleados, Sector)
+                VALUES (1, 'TechCorp', '123456789-4', 'SA', 5000, 'Secundario');
+                  """, """                
                 -- Cliente
-                INSERT INTO Cliente (Nombre, Apellido, DNI, Telefono, Direccion, Correo, IdOrganizacion)
-                VALUES ('Eva Rodriguez', 'Pérez', '87654321', '555-1234', 'Calle Principal 123', 'eva.rodriguez@example.com', 2);
-                                
+                INSERT INTO Cliente (Id, Nombre, Apellido, DNI, Telefono, Direccion, Correo, IdOrganizacion)
+                VALUES (1, 'Eva Rodriguez', 'Pérez', '87654321', '555-1234', 'Calle Principal 123', 'eva.rodriguez@example.com', 2);
+                """, """                  
                 -- Emisor
-                INSERT INTO Emisor (IdCliente, idEmpleado, IdProveedor, TipoEmisor)
-                VALUES (2, 1, 2, 'Cliente');
-                                
+                INSERT INTO Emisor (Id, IdCliente, idEmpleado, IdProveedor, TipoEmisor)
+                VALUES (1,2, 1, 2, 'Cliente');
+                """, """                  
                 -- Receptor
-                INSERT INTO Receptor (IdCliente, IdEmpleado, IdProveedor, TipoReceptor)
-                VALUES (2, 1, 2, 'Cliente');
-                                
+                INSERT INTO Receptor (Id ,IdCliente, IdEmpleado, IdProveedor, TipoReceptor)
+                VALUES (1 ,2, 1, 2, 'Cliente');
+                """, """                  
                 -- Documento
                 INSERT INTO Documento (NroOrden, FechaEmision, FechaVencimiento, IdEmisor, IdReceptor, Ubicacion, TotalPaquetes, TipoDocumento)
                 VALUES (1001, '2023-01-20', '2023-01-25', 1, 1, 'Almacén TechCorp', 5, 'Pedido');
-                                
-                """;
+                """, """  
+                --TransactionEXTCAB
+                INSERT INTO TransaccionEXTCAB (Id, IdEmisor, IdReceptor, FechaInicio, IdDocumento, TipoTransaccion, FechaPrevista, EsTransaccionFinanciera, IdRegistroContableCAB) 
+                VALUES(1, 1, 1, '2023-01-20', 1001, 'Entrada', '2023-01-25', 1, 1);
+                --TransaccionEXTDET
+                """, """  
+                INSERT INTO TransaccionEXTDET (Id ,Secuencia, IdTransaccionEXTCAB, Cantidad, Unidad_medida, Longitud, Profundidad, Altura, IdContenedor)
+                VALUES(1 ,1, 1, 5, 'Unidades', 0, 0, 0, 1); 
+                """, """  
+                --TransaccionINTCAB
+                INSERT INTO TransaccionINTCAB (IdAlmacen, IdEncargado, FechaInicio, FechaFinalizado)
+                VALUES(1, 1, '2023-01-20', '2023-01-25');
+                """, """  
+                --TransaccionINTDET
+                INSERT INTO TransaccionINTDET (Id ,Secuencia, IdTransaccionINTCAB, IdEstanteriaOrigen, IdContenedor, IdBloqueEstanteriaOrigen, IdBloqueEstanteriaDestino, IdEstanteriaDestino)
+                VALUES(1, 1, 1, 1, 1, 1, 1, 1);
+                """,
+                """  
+                INSERT INTO Tarifario (IdProducto, PrecioUnitario, Cantidad, TasaImpositiva, Descuento, FechaVencimiento)
+                VALUES(1, 1000, 5, 0.18, 0, '2023-01-25');
+                """,
+                """
+                    INSERT INTO RegistroContableCAB (NroOrden, Año)
+                    VALUES (1, '2023-11-19');
+                """, """
+                INSERT INTO RegistroContableDET (IdRegistroContableCAB)
+                VALUES (1);
+                """,
+                """
+                INSERT INTO FechaContable (Fecha, IdRegistroContableDET)
+                VALUES ('2023-11-19', 1); -- Aquí asumo que estás relacionando con el registro que acabas de insertar en RegistroContableDET
+                """,
+                """
+                INSERT INTO Descripcion (Valor, IdRegistroContableDET)
+                VALUES ('Descripción de ejemplo', 1); -- Aquí asumo que estás relacionando con el registro que acabas de insertar en RegistroContableDET
+                ""","""
+                INSERT INTO Cuenta (TipoCuenta, Valor, IdRegistroContableDET)
+                VALUES ('Debe', 100.50, 1); -- Aquí asumo que estás relacionando con el registro que acabas de insertar en RegistroContableDET 
+                """
+        };
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        String[] tablas=new String[]{"Usuarios","Accesos","LicendiaDeFuncionamiento","Fabricante","Contenedor","Almacen","Producto","Estanteria","BloqueEstanteria","Empleado","Proveedor","Organizacion","Cliente","Emisor","Receptor","Documento","RegistroContable.CAB","RegistroContable.DET","FechaContable","Descripcion","Cuenta","TransaccionEXT.CAB","TransaccionEXT.DET","TransaccionINT.CAB","TransaccionINT.DET","Tarifario"};
+        String[] tablas=new String[]{"Usuario","Accesos","LicenciaDeFuncionamiento","Fabricante","Contenedor","Almacen","Producto","Estanteria","BloqueEstanteria","Empleado","Proveedor","Organizacion","Cliente","Emisor","Receptor","Documento","RegistroContableCAB","RegistroContableDET","FechaContable","Descripcion","Cuenta","TransaccionEXTCAB","TransaccionEXTDET","TransaccionINTCAB","TransaccionINTDET","Tarifario"};
         for(String tabla:tablas)
         {
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+tabla);
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+tabla+";");
         }
         onCreate(sqLiteDatabase);
     }

@@ -23,6 +23,17 @@ public class Almacen {
         this.estanterias = estanterias;
     }
 
+    @Override
+    public String toString() {
+        return "Almacen{" +
+                "NumeroEstanterias=" + NumeroEstanterias +
+                ", Ubicacion='" + Ubicacion + '\'' +
+                ", licencia=" + licencia +
+                ", empleados=" + empleados +
+                ", estanterias=" + estanterias +
+                '}';
+    }
+
     public List<Estanteria> getEstanterias() {
         return estanterias;
     }

@@ -24,6 +24,17 @@ public class Receptor {
         return TipoReceptor;
     }
 
+    @Override
+    public String toString() {
+        return "Receptor{" +
+                "client=" + client +
+                ", empleado=" + empleado +
+                ", proveedor=" + proveedor +
+                ", TipoReceptor='" + TipoReceptor + '\'' +
+                ", Documentos=" + Documentos +
+                '}';
+    }
+
     public void setTipoReceptor(String tipoReceptor) {
         TipoReceptor = tipoReceptor;
     }

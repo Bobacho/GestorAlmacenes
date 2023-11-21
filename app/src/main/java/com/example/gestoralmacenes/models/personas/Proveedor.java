@@ -21,6 +21,19 @@ public class Proveedor {
         Contacto = contacto;
     }
 
+    @Override
+    public String toString() {
+        return "Proveedor{" +
+                "Nombre='" + Nombre + '\'' +
+                ", TelefonoContacto='" + TelefonoContacto + '\'' +
+                ", Direccion='" + Direccion + '\'' +
+                ", RUUC='" + RUUC + '\'' +
+                ", GiroProveedor='" + GiroProveedor + '\'' +
+                ", TelefonoProveedor='" + TelefonoProveedor + '\'' +
+                ", Contacto='" + Contacto + '\'' +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

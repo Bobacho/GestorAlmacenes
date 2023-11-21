@@ -25,7 +25,7 @@ public class TransaccionExternaUnitaria {
 
     @Override
     public String toString() {
-        return "TransaccionExternaUnitaria{" +
+        return "DETALLES{" +
                 "Secuencia='" + Secuencia + '\'' +
                 ", Cantidad=" + Cantidad +
                 ", UnidadMedida='" + UnidadMedida + '\'' +

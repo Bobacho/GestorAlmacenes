@@ -20,6 +20,17 @@ public class Emisor {
         Documentos = documentos;
     }
 
+    @Override
+    public String toString() {
+        return "Emisor{" +
+                "client=" + client +
+                ", empleado=" + empleado +
+                ", proveedor=" + proveedor +
+                ", TipoEmisor='" + TipoEmisor + '\'' +
+                ", Documentos=" + Documentos +
+                '}';
+    }
+
     public List<Documento> getDocumentos() {
         return Documentos;
     }

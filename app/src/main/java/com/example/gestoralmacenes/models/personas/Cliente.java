@@ -15,6 +15,14 @@ public class Cliente {
         return Id;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Nombre='" + Nombre + '\'' +
+                ", Telefono='" + Telefono + '\'' +
+                '}';
+    }
+
     public void setId(Long id) {
         Id = id;
     }

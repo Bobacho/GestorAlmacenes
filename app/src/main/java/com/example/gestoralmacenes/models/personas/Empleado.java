@@ -29,6 +29,21 @@ public class Empleado {
         this.transacciones = transacciones;
     }
 
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "Nombre='" + Nombre + '\'' +
+                ", Rango='" + Rango + '\'' +
+                ", DescripcionResponsabilidad='" + DescripcionResponsabilidad + '\'' +
+                ", usuario=" + usuario +
+                ", DNI='" + DNI + '\'' +
+                ", NivelEstudio='" + NivelEstudio + '\'' +
+                ", Telefono='" + Telefono + '\'' +
+                ", Correo='" + Correo + '\'' +
+                ", transacciones=" + transacciones +
+                '}';
+    }
+
     public List<Transaccion> getTransacciones() {
         return transacciones;
     }

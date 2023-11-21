@@ -19,6 +19,17 @@ public class Documento {
         TipoDocumento = tipoDocumento;
     }
 
+    @Override
+    public String toString() {
+        return "Documento{" +
+                "NroOrden='" + NroOrden + '\'' +
+                ", FechaDeEmision=" + FechaDeEmision +
+                ", Ubicacion='" + Ubicacion + '\'' +
+                ", TotalPaquetes=" + TotalPaquetes +
+                ", TipoDocumento='" + TipoDocumento + '\'' +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

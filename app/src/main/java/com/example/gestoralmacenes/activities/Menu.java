@@ -1,6 +1,7 @@
 package com.example.gestoralmacenes.activities;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import com.google.android.gms.vision.text.Line;
 import com.google.android.material.navigation.NavigationView;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 public class Menu extends AppCompatActivity {
@@ -28,29 +30,37 @@ public class Menu extends AppCompatActivity {
         try {
             //generarUsuarios();
             generarTransacciones();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            Button boton=(Button)findViewById(R.id.usuariosButton);
+            boton.setVisibility(View.INVISIBLE);
+            if(getIntent().getStringExtra("tipoUsuario").equals("Administrador"))
+            {
+                boton.setVisibility(View.VISIBLE);
+            }
+        } catch (Exception e) {
+            Log.e("Error",e.getMessage()+"\n"+ Arrays.toString(e.getStackTrace()));
         }
     }
 
     private void generarTransacciones() throws SQLException{
-        LinearLayout tabla=(LinearLayout)findViewById(R.id.transaccionesTabla);
-        DaoTransaccion connector=new DaoTransaccion(this);
-        List<com.example.gestoralmacenes.models.transaccion.Transaccion> transacciones=connector.getTransacciones();
-        for(Transaccion transaccion:transacciones)
-        {
-            Button boton=new Button(this);
-            boton.setText("Transaccion del :"+transaccion.getFechaInicio().toString()+"/"+transaccion.getFechaFin());
-            boton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i=new Intent(Menu.this, Transaccion.class);
-                    i.putExtra("Id",transaccion.getId());
-                    i.putExtra("TipoTransaccion",(transaccion.getClass()== TransaccionInterna.class)?"Interna":"Externa");
+        try {
+            LinearLayout tabla = (LinearLayout) findViewById(R.id.transaccionesTabla);
+            DaoTransaccion connector = new DaoTransaccion(this);
+            //Log.d("tables",connector.showTables().toString());
+            List<com.example.gestoralmacenes.models.transaccion.Transaccion> transacciones = connector.getTransacciones();
+            for (Transaccion transaccion : transacciones) {
+                Button boton = new Button(this);
+                boton.setText("Transaccion del :" + transaccion.getFechaInicio().toString() + "/" + transaccion.getFechaFin());
+                boton.setOnClickListener(view -> {
+                    Intent i = new Intent(this, TransaccionActivity.class);
+                    i.putExtra("Id", transaccion.getId());
+                    i.putExtra("TipoTransaccion", transaccion.getTipoTransaccion());
                     startActivity(i);
-                }
-            });
-            tabla.addView(boton);
+                });
+                tabla.addView(boton);
+            }
+        }catch (Exception e)
+        {
+            Log.e("Error",e.getMessage()+"\n"+ Arrays.toString(e.getStackTrace()));
         }
     }
 
@@ -105,10 +115,16 @@ public class Menu extends AppCompatActivity {
             tabla.addView(tipoActividad);
         }
     }
-
-    public void moveToProductos(View v)
+    public void movetoUsuarios(View view)
     {
-        Intent i=new Intent(this, ProductosActivity.class);
+        if(getIntent().getStringExtra("tipoUsuario").equals("Administrador")) {
+            Intent i = new Intent(this, UsuarioActivity.class);
+            startActivity(i);
+        }
+    }
+    public void movetoProductos(View view)
+    {
+        Intent i=new Intent(this,ProductoActivity.class);
         startActivity(i);
     }
 }

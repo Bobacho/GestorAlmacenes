@@ -13,6 +13,14 @@ public class LicenciaDeFuncionamiento {
         FechaDeEmision = fechaDeEmision;
     }
 
+    @Override
+    public String toString() {
+        return "LicenciaDeFuncionamiento{" +
+                "Municipalidad='" + Municipalidad + '\'' +
+                ", FechaDeEmision=" + FechaDeEmision +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }

@@ -19,6 +19,17 @@ public class Tarifario {
         FechaVencimiento = fechaVencimiento;
     }
 
+    @Override
+    public String toString() {
+        return "Tarifario{" +
+                "PrecioUnitario=" + PrecioUnitario +
+                ", Cantidad=" + Cantidad +
+                ", Impuestos=" + Impuestos +
+                ", Descuento=" + Descuento +
+                ", FechaVencimiento=" + FechaVencimiento +
+                '}';
+    }
+
     public Long getId() {
         return Id;
     }
