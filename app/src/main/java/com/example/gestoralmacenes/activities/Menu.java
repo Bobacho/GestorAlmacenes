@@ -30,12 +30,12 @@ public class Menu extends AppCompatActivity {
         try {
             //generarUsuarios();
             generarTransacciones();
-            Button boton=(Button)findViewById(R.id.usuariosButton);
+            /*Button boton=(Button)findViewById(R.id.usuariosButton);
             boton.setVisibility(View.INVISIBLE);
             if(getIntent().getStringExtra("tipoUsuario").equals("Administrador"))
             {
                 boton.setVisibility(View.VISIBLE);
-            }
+            }*/
         } catch (Exception e) {
             Log.e("Error",e.getMessage()+"\n"+ Arrays.toString(e.getStackTrace()));
         }
@@ -125,6 +125,16 @@ public class Menu extends AppCompatActivity {
     public void movetoProductos(View view)
     {
         Intent i=new Intent(this,ProductoActivity.class);
+        startActivity(i);
+    }
+    public void movetoContenedores(View view)
+    {
+        Intent i=new Intent(this,ContenedorActivity.class);
+        startActivity(i);
+    }
+    public void moveToGraficos(View view)
+    {
+        Intent i=new Intent(this,GraficosActivity.class);
         startActivity(i);
     }
 }

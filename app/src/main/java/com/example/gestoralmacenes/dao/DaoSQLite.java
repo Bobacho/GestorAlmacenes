@@ -99,7 +99,7 @@ Create TABLE Fabricante(
             );
             """,
             """
-                CREATE TABLE BloqueEstanteriaContenedor(
+            CREATE TABLE BloqueEstanteriaContenedor(
             IdBloqueEstanteria INTEGER NOT NULL,
             IdContenedor INTEGER NOT NULL,
             FOREIGN KEY (IdBloqueEstanteria) REFERENCES BloqueEstanteria(Id),
@@ -304,16 +304,14 @@ Create TABLE Fabricante(
             """
         };
 
-        for(String query:sql)
-        {
-            sqLiteDatabase.execSQL(query);
-        }
-        sqLiteDatabase.execSQL("insert into Usuario values(1,'admin','admin','Administrador','admin',date('now'),'Activo','127.0.0.1')");
-        for(String insert:generarValores())
-        {
-            sqLiteDatabase.execSQL(insert);
-        }
-
+            for (String query : sql) {
+                sqLiteDatabase.execSQL(query);
+            }
+            sqLiteDatabase.execSQL("insert into Usuario values(1,'admin','admin','Administrador','admin',date('now'),'Activo','127.0.0.1')");
+            for (String insert : generarValores()) {
+                Log.d("Insert",insert);
+                sqLiteDatabase.execSQL(insert);
+            }
     }
     private String[] generarValores()
     {
@@ -340,20 +338,24 @@ Create TABLE Fabricante(
                     """, """                 
                 -- Fabricante
                 INSERT INTO Fabricante (Id, Nombre, Ubicacion, Contacto)
-                VALUES (1, 'TechGadget Inc.', 'Silicon Valley', 'Steve Jobs');
+                VALUES (1, 'TechGadget Inc.', 'Silicon Valley', 'Steve Jobs'),
+                        (2, 'Gadget Supplier', 'Asia', 'John Supplier');
                 """, """                  
                 -- Contenedor
                 INSERT INTO Contenedor (Id, CapacidadMaxima, CapacidadActual, Largo, Altura, Profundidad, Peso)
-                VALUES (1, 500, 200, 3.5, 2.0, 2.0, 150);
+                VALUES (1, 500, 200, 3.5, 2.0, 2.0, 150),
+                        (2, 100, 50, 2.0, 1.5, 1.5, 100);
                  """, """                
                 -- Producto
                 INSERT INTO Producto (Id, Nombre, Descripcion, Garantia, IdAlmacen, IdFabricante, IdContenedor, Unidad_Medida, Tipo)
-                VALUES (1, 'Smartphone X', 'Potente y elegante', 1, 1, 1, 1, 'Unidades', 'No Perecedero');
+                VALUES (1, 'Smartphone X', 'Potente y elegante', 1, 1, 1, 1, 'Unidades', 'No Perecedero'),
+                        (2, 'Pan Bembo' , 'Pan de molde', 1, 1, 2, 2, 'Unidades', 'Perecedero');
                    """, """                          
                 -- BloqueEstanteria
                 INSERT INTO BloqueEstanteria (Id, Largo, Altura, Profundidad, PesoMaximo, PesoActual, IdEstanteria, Fila, Columna, Cara)
                 VALUES (1, 3.0, 1.8, 1.8, 80, 40, 1, 1, 1, 1);
-                 """, """
+                 """,
+                """
                 INSERT INTO Empleado (Nombre, Rango, DescripcionResponsabilidad, IdUsuario, IdAlmacen, DNI, NivelEstudio, Telefono, Correo)
                 VALUES ('NombreEmpleado', 'Trabajador', 'Descripción de responsabilidad', 1, 2, '12345678', 'Bachiller', '123-456-7890', 'correo@ejemplo.com');
                  """, """                 
@@ -399,7 +401,8 @@ Create TABLE Fabricante(
                 """,
                 """  
                 INSERT INTO Tarifario (IdProducto, PrecioUnitario, Cantidad, TasaImpositiva, Descuento, FechaVencimiento)
-                VALUES(1, 1000, 5, 0.18, 0, '2023-01-25');
+                VALUES(1, 1000, 5, 0.18, 0, '2023-01-25'),
+                       (2, 5, 1, 0.18, 0, '2023-01-25');
                 """,
                 """
                     INSERT INTO RegistroContableCAB (NroOrden, Año)

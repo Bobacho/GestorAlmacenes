@@ -8,12 +8,16 @@
         tools:context=".activities.ProductoActivity">
 
     <ScrollView
-            android:layout_width="392dp"
-            android:layout_height="756dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.986">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical" android:id="@+id/productosTabla"/>
+                      android:orientation="vertical"/>
     </ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical" android:id="@+id/productosTabla" android:visibility="visible"
+                  tools:layout_editor_absoluteX="0dp" app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.019"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

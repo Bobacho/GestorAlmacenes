@@ -10,6 +10,9 @@ public class Tarifario {
     private Float Descuento;
     private LocalDate FechaVencimiento;
 
+    public Tarifario() {
+    }
+
     public Tarifario(Long id, Float precioUnitario, Integer cantidad, Float impuestos, Float descuento, LocalDate fechaVencimiento) {
         Id = id;
         PrecioUnitario = precioUnitario;

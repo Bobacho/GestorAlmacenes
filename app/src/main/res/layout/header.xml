@@ -34,11 +34,12 @@
         <Button
                 android:text="Contenedores"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/ContenedoresButton"/>
+                android:layout_height="wrap_content" android:id="@+id/ContenedoresButton"
+                android:onClick="movetoContenedores"/>
         <Button
                 android:text="Grafico"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/graficoButton"/>
+                android:layout_height="wrap_content" android:id="@+id/graficoButton" android:onClick="moveToGraficos"/>
         <Button
                 android:text="Usuarios"
                 android:layout_width="match_parent"

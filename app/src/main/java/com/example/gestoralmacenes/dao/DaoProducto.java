@@ -3,6 +3,7 @@ package com.example.gestoralmacenes.dao;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.example.gestoralmacenes.models.almacen.Producto;
 import com.example.gestoralmacenes.models.documentos.Tarifario;
@@ -45,6 +46,7 @@ public class DaoProducto{
         {
             List<Producto> productos=new ArrayList<>();
             do{
+                Log.d("Productos",cursor.getLong(0)+"");
                 Producto producto=new Producto(
                   cursor.getLong(0),
                   cursor.getString(7),
@@ -85,10 +87,10 @@ public class DaoProducto{
         }
         else
         {
-            return null;
+            return List.of(new Tarifario(0L,0.0f,0,0.0f,0.0f,LocalDate.now()));
         }
     }
-    public Tarifario getTarifarioActual(List<Tarifario> tarifarios)
+    public static Tarifario getTarifarioActual(List<Tarifario> tarifarios)
     {
         Tarifario tarifarioActual=tarifarios.get(0);
         for (Tarifario tarifario:tarifarios)
