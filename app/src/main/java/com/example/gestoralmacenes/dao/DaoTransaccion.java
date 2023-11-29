@@ -28,6 +28,64 @@ public class DaoTransaccion{
         connector=new DaoSQLite(context);
         db=connector.getReadableDatabase();
     }
+    public List<Transaccion> findTranasccionesByFechaInicio(LocalDate date,LocalDate date1)
+    {
+        List<TransaccionExterna> transaccionExternas=getTransaccionesExternasByFechas(date,date1);
+        List<TransaccionInterna> transaccionInternas=getTransaccionInternaByFechas(date,date1);
+        List<Transaccion> transacciones=new ArrayList<>();
+        transacciones.addAll(transaccionExternas);
+        transacciones.addAll(transaccionInternas);
+        Collections.sort(transacciones);
+        return transacciones;
+    }
+
+    private List<TransaccionInterna> getTransaccionInternaByFechas(LocalDate date,LocalDate date1) {
+        Cursor cursor=db.rawQuery("select * from TransaccionINTCAB where JULIANDAY(FechaInicio)-JULIANDAY("+date+")>0 and JULIANDAY(FechaInicio)-JULIANDAY("+date1+")<0;",null);
+        if(cursor.moveToFirst())
+        {
+            List<TransaccionInterna> transaccionInternas=new ArrayList<>();
+            do {
+                TransaccionInterna transaccionInterna=new TransaccionInterna(
+                        cursor.getLong(0),
+                        LocalDate.parse(cursor.getString(3)),
+                        LocalDate.parse(cursor.getString(4)),
+                        getTransaccionInternaUnitariaByTransaccionInternaId(cursor.getLong(0)),
+                        getAlmacenById(cursor.getLong(1)),
+                        getEmpleadoById(cursor.getLong(2))
+                );
+                transaccionInternas.add(transaccionInterna);
+            }while(cursor.moveToNext());
+            return transaccionInternas;
+        }
+        else{
+            return null;
+        }
+    }
+
+    private List<TransaccionExterna> getTransaccionesExternasByFechas(LocalDate date1,LocalDate date2) {
+        Cursor cursor=db.rawQuery("select * from TransaccionEXTCAB where JULIANDAY(FechaInicio)-JULIANDAY("+date1+")>=0 and JULIANDAY(FechaInicio)-JULIANDAY("+date2+")<=0;",null);
+        if(cursor.moveToFirst())
+        {
+            List<TransaccionExterna> transaccionExternas=new ArrayList<>();
+            do {
+                TransaccionExterna transaccionExterna=new TransaccionExterna(
+                        cursor.getLong(0),
+                        LocalDate.parse(cursor.getString(3)),
+                        LocalDate.parse(cursor.getString(6)),
+                        getTransaccionExternaUnitariaByTransaccionExternaId(cursor.getLong(0)),
+                        getDocumentosByTransaccionExternaId(cursor.getLong(4)),
+                        getRegistrosContablesByDocumentoId(cursor.getLong(8))
+                );
+                transaccionExternas.add(transaccionExterna);
+            }while(cursor.moveToNext());
+            return transaccionExternas;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public List<Transaccion> getTransacciones()
     {
         List<TransaccionExterna> transaccionExternas=getTransaccionesExternas();
@@ -57,7 +115,7 @@ public class DaoTransaccion{
                         cursor.getFloat(4),
                         cursor.getFloat(5),
                         cursor.getFloat(6),
-                        getContenedorById(cursor.getLong(7))
+                        getContenedorById(cursor.getLong(8),0)
                 );
                 transaccionExternaUnitarias.add(transaccionExternaUnitaria);
             }while (cursor.moveToNext());
@@ -181,7 +239,7 @@ public class DaoTransaccion{
 
     public List<TransaccionInterna> getTransaccionInterna()
     {
-        Cursor cursor=db.rawQuery("select * from TransaccionINTCAB",null);
+        Cursor cursor=db.rawQuery("select * from TransaccionINTCAB;",null);
         if(cursor.moveToFirst())
         {
             List<TransaccionInterna> transaccionInternas=new ArrayList<>();
@@ -384,11 +442,11 @@ public class DaoTransaccion{
             do {
                 TransaccionInternaUnitaria transaccionInternaUnitaria=new TransaccionInternaUnitaria(
                         cursor.getLong(0),
-                        getEstanteriaById(cursor.getLong(1)),
-                        getEstanteriaById(cursor.getLong(2)),
-                        getBloqueEstanteriaById(cursor.getLong(3)),
-                        getBloqueEstanteriaById(cursor.getLong(4)),
-                        getContenedorById(cursor.getLong(5))
+                        getEstanteriaById(cursor.getLong(7)),
+                        getEstanteriaById(cursor.getLong(3)),
+                        getBloqueEstanteriaById(cursor.getLong(5),0),
+                        getBloqueEstanteriaById(cursor.getLong(6),0),
+                        getContenedorById(cursor.getLong(4),0)
                 );
                 transaccionesInternaUnitarias.add(transaccionInternaUnitaria);
             }while(cursor.moveToNext());
@@ -446,7 +504,7 @@ public class DaoTransaccion{
         }
     }
 
-    public Contenedor getContenedorById(Long Id)
+    public Contenedor getContenedorById(Long Id,int mode)
     {
         Cursor cursor=db.rawQuery("select * from Contenedor where Id="+Id,null);
         if(cursor.moveToFirst())
@@ -460,8 +518,9 @@ public class DaoTransaccion{
                     cursor.getFloat(5),
                     cursor.getFloat(6),
                     getProductosByContenedorId(cursor.getLong(0)),
-                    getBloqueEstanteriaByContenedorId(cursor.getLong(0))
+                    (mode==0)?getBloqueEstanteriaByContenedorId(cursor.getLong(0)):Collections.EMPTY_LIST
             );
+            cursor.close();
             return contenedor;
         }
         else
@@ -486,7 +545,7 @@ public class DaoTransaccion{
                         cursor.getInt(6),
                         cursor.getInt(7),
                         cursor.getInt(8),
-                        getContenedorByBloqueEstanteriaId(cursor.getLong(9))
+                        getContenedorByBloqueEstanteriaId(cursor.getLong(0))
                 );
                 bloqueEstanterias.add(bloqueEstanteria);
             }while(cursor.moveToNext());
@@ -498,13 +557,15 @@ public class DaoTransaccion{
     }
 
     private List<Contenedor> getContenedorByBloqueEstanteriaId(Long Id) {
-        Cursor cursor=db.rawQuery("select IdContenedor from BloqueEstanteriaContenedor where IdBloqueEstanteria="+Id,null);
+        Cursor cursor=db.rawQuery("select IdContenedor from BloqueEstanteriaContenedor where IdBloqueEstanteria="+Id+";",null);
         if (cursor.moveToFirst())
         {
             List<Contenedor> contenedores=new ArrayList<>();
             do {
-                contenedores.add(getContenedorById(cursor.getLong(0)));
+                Contenedor contenedor=getContenedorById(cursor.getLong(0),1);
+                contenedores.add(contenedor);
             }while (cursor.moveToNext());
+            cursor.close();
             return contenedores;
         }
         else
@@ -512,7 +573,7 @@ public class DaoTransaccion{
             return null;
         }
     }
-    public BloqueEstanteria getBloqueEstanteriaById(Long Id)
+    public BloqueEstanteria getBloqueEstanteriaById(Long Id,int mode)
     {
         Cursor cursor=db.rawQuery("select * from BloqueEstanteria where Id="+Id,null);
         if(cursor.moveToFirst())
@@ -527,8 +588,9 @@ public class DaoTransaccion{
                     cursor.getInt(6),
                     cursor.getInt(7),
                     cursor.getInt(8),
-                    getContenedorByBloqueEstanteriaId(cursor.getLong(9))
+                    (mode==0)?getContenedorByBloqueEstanteriaId(cursor.getLong(9)):Collections.EMPTY_LIST
             );
+            cursor.close();
             return bloqueEstanteria;
         }
         else
@@ -543,9 +605,10 @@ public class DaoTransaccion{
         {
             List<BloqueEstanteria> bloqueEstanterias=new ArrayList<>();
             do {
-                BloqueEstanteria bloqueEstanteria=getBloqueEstanteriaById(cursor.getLong(1));
+                BloqueEstanteria bloqueEstanteria=getBloqueEstanteriaById(cursor.getLong(1),1);
                 bloqueEstanterias.add(bloqueEstanteria);
             }while (cursor.moveToNext());
+            cursor.close();
             return bloqueEstanterias;
         }
         else
@@ -571,6 +634,7 @@ public class DaoTransaccion{
                         getTarifarioActual(getTarifariosByProductoId(cursor.getLong(0))));
                 productos.add(producto);
             }while (cursor.moveToNext());
+            cursor.close();
             return productos;
         }
         else
@@ -595,6 +659,7 @@ public class DaoTransaccion{
                 );
                 tarifarios.add(tarifario);
             }while (cursor.moveToNext());
+            cursor.close();
             return tarifarios;
         }
         else

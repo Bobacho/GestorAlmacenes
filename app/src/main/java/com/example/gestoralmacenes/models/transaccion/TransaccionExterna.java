@@ -46,12 +46,12 @@ public class TransaccionExterna extends Transaccion{
     @Override
     public String toString() {
         return "TransaccionExterna{" +
-                "transacciones=" + transacciones +
-                ", documento=" + documento +
-                ", registrosContable=" + registrosContable +
-                ", FechaInicio=" + FechaInicio +
-                ", FechaFin=" + FechaFin +
-                ", TipoTransaccion='" + TipoTransaccion + '\'' +
-                '}';
+                "\nFECHA DE INICIO=" + FechaInicio +
+                "\nFECHA FINALIZADA=" + FechaFin +
+                "\nDOCUMENTO=" + documento +
+                "\nREGISTROS CONTABLES=" + registrosContable +
+                "\n  TRANSACCIONES=" + transacciones +
+                "\n}";
+
     }
 }

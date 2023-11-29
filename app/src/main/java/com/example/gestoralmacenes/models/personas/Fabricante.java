@@ -22,11 +22,11 @@ public class Fabricante {
     @Override
     public String toString() {
         return "Fabricante{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Ubicacion='" + Ubicacion + '\'' +
-                ", Contacto='" + Contacto + '\'' +
-                ", productos=" + productos +
-                '}';
+                "\nNombre='" + Nombre + '\'' +
+                "\nUbicacion='" + Ubicacion + '\'' +
+                "\nContacto='" + Contacto + '\'' +
+                "\nproductos=" + productos +
+                "}\n";
     }
 
     public Long getId() {

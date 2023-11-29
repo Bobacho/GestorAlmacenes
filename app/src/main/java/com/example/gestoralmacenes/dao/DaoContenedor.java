@@ -11,6 +11,7 @@ import com.example.gestoralmacenes.models.documentos.Tarifario;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DaoContenedor {
@@ -19,6 +20,32 @@ public class DaoContenedor {
     public DaoContenedor(@Nullable Context context) {
         this.connector = new DaoSQLite(context);
         this.db = connector.getReadableDatabase();
+    }
+    public List<Contenedor> getContenedoresByProductoNombre(String nombreProducto)
+    {
+        Cursor cursor=db.rawQuery("SELECT * FROM Contenedor c left join Producto p ON c.Id=p.IdContenedor where p.Nombre LIKE ?;", new String[]{"%" + nombreProducto + "%"});
+        if(cursor.moveToFirst())
+        {
+            List<Contenedor> contenedores=new ArrayList<>();
+            do{
+                Contenedor contenedor=new Contenedor(
+                        cursor.getLong(0),
+                        cursor.getLong(1),
+                        cursor.getLong(2),
+                        cursor.getFloat(3),
+                        cursor.getFloat(4),
+                        cursor.getFloat(5),
+                        cursor.getFloat(6),
+                        getProductosByContenedorId(cursor.getLong(0)),
+                        getBloquesEstanteriaByContenedorId(cursor.getLong(0),0)
+                );
+                contenedores.add(contenedor);
+            }while(cursor.moveToNext());
+            return contenedores;
+        }
+        else {
+            return null;
+        }
     }
     public List<Contenedor> getContenedores()
     {
@@ -36,7 +63,7 @@ public class DaoContenedor {
                         cursor.getFloat(5),
                         cursor.getFloat(6),
                         getProductosByContenedorId(cursor.getLong(0)),
-                        getBloquesEstanteriaByContenedorId(cursor.getLong(0))
+                        getBloquesEstanteriaByContenedorId(cursor.getLong(0),0)
                 );
                 contenedores.add(contenedor);
             }while(cursor.moveToNext());
@@ -48,7 +75,7 @@ public class DaoContenedor {
 
     }
 
-    private List<BloqueEstanteria> getBloquesEstanteriaByContenedorId(Long Id) {
+    private List<BloqueEstanteria> getBloquesEstanteriaByContenedorId(Long Id,int mode) {
         Cursor cursor=db.rawQuery("select * from BloqueEstanteriaContenedor where IdContenedor="+Id+";",null);
         if(cursor.moveToFirst())
         {
@@ -68,7 +95,7 @@ public class DaoContenedor {
                                  cursor1.getInt(6),
                                  cursor1.getInt(7),
                                  cursor1.getInt(8),
-                                 getContenedoresByBloqueEstanteriaId(cursor1.getLong(0))
+                                 getContenedoresByBloqueEstanteriaId(cursor1.getLong(0),1)
                          );
                          bloquesEstanteria.add(bloqueEstanteria);
                      }while(cursor1.moveToNext());
@@ -82,32 +109,36 @@ public class DaoContenedor {
         }
     }
 
-    private List<Contenedor> getContenedoresByBloqueEstanteriaId(Long Id) {
-        Cursor cursor=db.rawQuery("select * from BloqueEstanteriaContenedor where IdContenedor="+Id+";",null);
+    private List<Contenedor> getContenedoresByBloqueEstanteriaId(Long Id,int mode) {
+        Cursor cursor=db.rawQuery("select IdContenedor from BloqueEstanteriaContenedor where IdBloqueEstanteria="+Id+";",null);
         if(cursor.moveToFirst())
         {
             List<Contenedor> contenedores=new ArrayList<>();
             do{
-                Cursor cursor1=db.rawQuery("select * from Contedor where Id="+cursor.getLong(1)+";",null);
+                Cursor cursor1=db.rawQuery("select * from Contenedor where Id="+cursor.getLong(0)+";",null);
                 if(cursor1.moveToFirst())
                 {
-                    Contenedor contenedor=new Contenedor(
-                            cursor1.getLong(0),
-                            cursor1.getLong(1),
-                            cursor1.getLong(2),
-                            cursor1.getFloat(3),
-                            cursor1.getFloat(4),
-                            cursor1.getFloat(5),
-                            cursor1.getFloat(6),
-                            getProductosByContenedorId(cursor1.getLong(0)),
-                            getBloquesEstanteriaByContenedorId(cursor1.getLong(0))
-                    );
-                    contenedores.add(contenedor);
+                    do {
+                        Contenedor contenedor=new Contenedor(
+                                cursor1.getLong(0),
+                                cursor1.getLong(1),
+                                cursor1.getLong(2),
+                                cursor1.getFloat(3),
+                                cursor1.getFloat(4),
+                                cursor1.getFloat(5),
+                                cursor1.getFloat(6),
+                                getProductosByContenedorId(cursor1.getLong(0)),
+                                (mode==0)?getBloquesEstanteriaByContenedorId(cursor1.getLong(0),1):Collections.EMPTY_LIST
+                        );
+                        contenedores.add(contenedor);
+                    }while(cursor1.moveToNext());
                 }
+                cursor1.close();
             }while(cursor.moveToNext());
             return contenedores;
         }
-        else {
+        else
+        {
             return null;
         }
     }
@@ -174,7 +205,7 @@ public class DaoContenedor {
                     cursor.getFloat(5),
                     cursor.getFloat(6),
                     getProductosByContenedorId(cursor.getLong(0)),
-                    getBloquesEstanteriaByContenedorId(cursor.getLong(0))
+                    getBloquesEstanteriaByContenedorId(cursor.getLong(0),0)
             );
             return contenedor;
         }

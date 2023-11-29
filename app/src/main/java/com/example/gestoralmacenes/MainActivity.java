@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(this, Menu.class);
                     i.putExtra("usuario", usuario.getNombre());
                     i.putExtra("tipoUsuario", usuario.getTipoUsuario());
+                    i.putExtra("Filtros",0);
                     startActivity(i);
                 }
             }

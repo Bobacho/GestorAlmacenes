@@ -20,9 +20,9 @@ public class Estanteria {
     @Override
     public String toString() {
         return "Estanteria{" +
-                "NroLote='" + NroLote + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", bloques=" + bloques +
+                "\nNroLote='" + NroLote + '\'' +
+                "\ncategoria='" + categoria + '\'' +
+                "\nbloques=" + bloques +
                 '}';
     }
 

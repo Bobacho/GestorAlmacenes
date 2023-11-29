@@ -18,37 +18,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5beeeeb-2e1f-4bf9-b690-df50da8a75a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/ContenedorActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/ContenedorDetalleActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/GraficosActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/GraficosIMPActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoContenedor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_contenedor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_contenedor_detalle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_graficos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_graficos_impactivity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/BuscadorUbicacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/FechaActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/UsuarioDetalleActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_buscador_ubicacion.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_fecha.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_usuario_detalle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/ContenedorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/ContenedorActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/ProductoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/ProductoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/TransaccionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/TransaccionActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/UsuarioActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/UsuarioActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoContenedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoContenedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoSQLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoSQLite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Almacen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Almacen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/BloqueEstanteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/BloqueEstanteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Contenedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Contenedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Estanteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Estanteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/almacen/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/Documento.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/Documento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/LicenciaDeFuncionamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/LicenciaDeFuncionamiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/RegistrosContables.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/RegistrosContables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/Tarifario.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/documentos/Tarifario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Emisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Emisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Fabricante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Fabricante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Organizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Organizacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Proveedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Proveedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Receptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Receptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionExterna.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionExterna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionExternaUnitaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionExternaUnitaria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionInterna.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionInterna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionInternaUnitaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/transaccion/TransaccionInternaUnitaria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_contenedor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_contenedor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_producto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_producto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_usuario.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/header.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,9 +112,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -126,10 +146,10 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="android.template.1272400885">
-      <recent name="com.example.gestoralmacenes" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.gestoralmacenes.activities" />
+    </key>
+    <key name="android.template.767239340">
       <recent name="com.example.gestoralmacenes.activities" />
     </key>
     <key name="android.template.1998376570">
@@ -137,10 +157,6 @@
     </key>
     <key name="android.template.-2127771800">
       <recent name="com.example.gestoralmacenes.activities" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
     </key>
     <key name="android.template.-1483496980">
       <recent name="com.example.gestoralmacenes.activities" />
@@ -151,6 +167,13 @@
     <key name="android.template.-698669316">
       <recent name="com.example.gestoralmacenes" />
     </key>
+    <key name="android.template.1272400885">
+      <recent name="com.example.gestoralmacenes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    </key>
     <key name="android.template.843971550">
       <recent name="com.example.gestoralmacenes" />
     </key>
@@ -158,6 +181,12 @@
       <recent name="com.example.gestoralmacenes" />
     </key>
     <key name="android.template.-2093571208">
+      <recent name="com.example.gestoralmacenes.activities" />
+    </key>
+    <key name="android.template.-1123591806">
+      <recent name="com.example.gestoralmacenes.activities" />
+    </key>
+    <key name="android.template.-650103303">
       <recent name="com.example.gestoralmacenes.activities" />
     </key>
   </component>
@@ -275,107 +304,101 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>129</line>
+          <line>187</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>149</line>
+          <line>207</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>139</line>
+          <line>197</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>161</line>
+          <line>219</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>183</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>379</line>
+          <line>437</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>403</line>
+          <line>461</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>421</line>
+          <line>479</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>450</line>
+          <line>508</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>473</line>
+          <line>532</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>500</line>
+          <line>559</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>516</line>
+          <line>577</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>540</line>
+          <line>602</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>557</line>
+          <line>620</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>582</line>
+          <line>646</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="23" />
+          <line>261</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>203</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/models/personas/Usuario.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/dao/DaoTransaccion.java</url>
-          <line>30</line>
+          <line>88</line>
           <properties class="com.example.gestoralmacenes.dao.DaoTransaccion" method="getTransacciones">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/gestoralmacenes/activities/Menu.java</url>
+          <line>169</line>
+          <properties class="com.example.gestoralmacenes.activities.Menu" method="generarUsuarios">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

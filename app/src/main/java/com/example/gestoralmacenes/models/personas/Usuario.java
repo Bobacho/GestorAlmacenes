@@ -15,15 +15,15 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "Id=" + Id +
-                ", NombreUsuario='" + NombreUsuario + '\'' +
-                ", Contraseña='" + Contraseña + '\'' +
-                ", TipoUsuario='" + TipoUsuario + '\'' +
-                ", Nombre='" + Nombre + '\'' +
-                ", FechaRegistro=" + FechaRegistro +
-                ", TipoActividad='" + TipoActividad + '\'' +
-                ", DireccionIp='" + DireccionIp + '\'' +
-                '}';
+                "\nId=" + Id +
+                "\nNombreUsuario='" + NombreUsuario + '\'' +
+                "\nContraseña='" + Contraseña + '\'' +
+                "\nTipoUsuario='" + TipoUsuario + '\'' +
+                "\nNombre='" + Nombre + '\'' +
+                "\nFechaRegistro=" + FechaRegistro +
+                "\nTipoActividad='" + TipoActividad + '\'' +
+                "\nDireccionIp='" + DireccionIp + '\'' +
+                "}\n";
     }
 
     public String getNombreUsuario() {

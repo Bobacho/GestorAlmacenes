@@ -26,11 +26,11 @@ public class Tarifario {
     public String toString() {
         return "Tarifario{" +
                 "PrecioUnitario=" + PrecioUnitario +
-                ", Cantidad=" + Cantidad +
-                ", Impuestos=" + Impuestos +
-                ", Descuento=" + Descuento +
-                ", FechaVencimiento=" + FechaVencimiento +
-                '}';
+                "\nCantidad=" + Cantidad +
+                "\nImpuestos=" + Impuestos +
+                "\nDescuento=" + Descuento +
+                "\nFechaVencimiento=" + FechaVencimiento +
+                "}\n";
     }
 
     public Long getId() {

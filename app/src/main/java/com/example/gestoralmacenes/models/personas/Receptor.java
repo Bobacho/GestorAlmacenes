@@ -27,12 +27,12 @@ public class Receptor {
     @Override
     public String toString() {
         return "Receptor{" +
-                "client=" + client +
-                ", empleado=" + empleado +
-                ", proveedor=" + proveedor +
-                ", TipoReceptor='" + TipoReceptor + '\'' +
-                ", Documentos=" + Documentos +
-                '}';
+                "\nCliente=" + client +
+                "\nempleado=" + empleado +
+                "\nproveedor=" + proveedor +
+                "\nTipoReceptor='" + TipoReceptor + '\'' +
+                "\nDocumentos=" + Documentos +
+                "}\n";
     }
 
     public void setTipoReceptor(String tipoReceptor) {

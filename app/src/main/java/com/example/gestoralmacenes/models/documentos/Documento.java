@@ -22,12 +22,12 @@ public class Documento {
     @Override
     public String toString() {
         return "Documento{" +
-                "NroOrden='" + NroOrden + '\'' +
-                ", FechaDeEmision=" + FechaDeEmision +
-                ", Ubicacion='" + Ubicacion + '\'' +
-                ", TotalPaquetes=" + TotalPaquetes +
-                ", TipoDocumento='" + TipoDocumento + '\'' +
-                '}';
+                "\nNroOrden='" + NroOrden + '\'' +
+                "\nFechaDeEmision=" + FechaDeEmision +
+                "\nUbicacion='" + Ubicacion + '\'' +
+                "\nTotalPaquetes=" + TotalPaquetes +
+                "\nTipoDocumento='" + TipoDocumento + '\'' +
+                "}\n";
     }
 
     public Long getId() {

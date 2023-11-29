@@ -31,7 +31,7 @@ public class RegistrosContables {
                 ", descripciones=" + descripciones.toString() +
                 ", importes=" + importes.toString() +
                 ", cuentasContables=" + cuentasContables.toString() +
-                '}';
+                "}\n";
     }
 
     public Long getId() {

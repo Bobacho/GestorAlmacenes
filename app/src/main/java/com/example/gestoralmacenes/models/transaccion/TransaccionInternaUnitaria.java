@@ -23,12 +23,12 @@ public class TransaccionInternaUnitaria {
     @Override
     public String toString() {
         return "DETALLES{" +
-                "Origen=" + Origen +
-                ", Destino=" + Destino +
-                ", BloqueOrigen=" + BloqueOrigen +
-                ", BloqueDestino=" + BloqueDestino +
-                ", Contenedor=" + Contenedor +
-                '}';
+                "\nOrigen=" + Origen +
+                "\nDestino=" + Destino +
+                "\nBloqueOrigen=" + BloqueOrigen +
+                "\nBloqueDestino=" + BloqueDestino +
+                "\nContenedor=" + Contenedor +
+                "\n}";
     }
 
     public Long getId() {

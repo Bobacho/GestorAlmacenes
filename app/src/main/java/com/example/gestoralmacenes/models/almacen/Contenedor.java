@@ -28,15 +28,15 @@ public class Contenedor {
     @Override
     public String toString() {
         return "Contenedor{" +
-                "CapacidadMaxima=" + CapacidadMaxima +
-                ", CapacidadActual=" + CapacidadActual +
-                ", Largo=" + Largo +
-                ", Altura=" + Altura +
-                ", Profundidad=" + Profundidad +
-                ", PesoMaximo=" + PesoMaximo +
-                ", productos=" + productos +
-                ", bloqueEstanteria=" + bloqueEstanteria +
-                '}';
+                "\nCapacidadMaxima=" + CapacidadMaxima +
+                "\nCapacidadActual=" + CapacidadActual +
+                "\nLargo=" + Largo +
+                "\nAltura=" + Altura +
+                "\nProfundidad=" + Profundidad +
+                "\nPesoMaximo=" + PesoMaximo +
+                "\nproductos=" + productos +
+                "\nbloqueEstanteria=" + bloqueEstanteria +
+                "\n}";
     }
 
     public Long getId() {

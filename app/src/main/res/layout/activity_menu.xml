@@ -10,13 +10,31 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/navigationButton"
-                app:icon="@android:drawable/ic_menu_agenda"
-                android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:onClick="startNavigate"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="79dp">
+            <Button
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content" android:id="@+id/navigationButton"
+                    app:icon="@android:drawable/ic_menu_agenda"
+                    android:visibility="visible"
+                    android:layout_marginTop="4dp"
+                    android:onClick="startNavigate"/>
+            <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/chip" android:layout_weight="1"
+                    android:text="Internas"/>
+            <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/chip2" android:layout_weight="1"
+                    android:text="Externas"/>
+            <Button
+                    android:text="Fechas"
+                    android:layout_width="213dp"
+                    android:layout_height="wrap_content" android:id="@+id/button2" android:layout_weight="1"
+                    app:icon="@android:drawable/ic_menu_today" android:onClick="moveToFechas"/>
+        </LinearLayout>
         <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:contentDescription="@string/app_name"
@@ -26,8 +44,7 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/transaccionesTabla">
+                    android:layout_height="wrap_content" android:id="@+id/transaccionesTabla">
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
@@ -38,6 +55,7 @@
                                                            android:visibility="invisible"
                                                            app:layout_constraintStart_toStartOf="parent"
                                                            app:layout_constraintBottom_toBottomOf="parent"
-                                                           app:layout_constraintTop_toTopOf="parent"/>
+                                                           app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

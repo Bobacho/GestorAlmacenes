@@ -24,14 +24,14 @@ public class Proveedor {
     @Override
     public String toString() {
         return "Proveedor{" +
-                "Nombre='" + Nombre + '\'' +
-                ", TelefonoContacto='" + TelefonoContacto + '\'' +
-                ", Direccion='" + Direccion + '\'' +
-                ", RUUC='" + RUUC + '\'' +
-                ", GiroProveedor='" + GiroProveedor + '\'' +
-                ", TelefonoProveedor='" + TelefonoProveedor + '\'' +
-                ", Contacto='" + Contacto + '\'' +
-                '}';
+                "\nNombre='" + Nombre + '\'' +
+                "\nTelefonoContacto='" + TelefonoContacto + '\'' +
+                "\nDireccion='" + Direccion + '\'' +
+                "\nRUUC='" + RUUC + '\'' +
+                "\nGiroProveedor='" + GiroProveedor + '\'' +
+                "\nTelefonoProveedor='" + TelefonoProveedor + '\'' +
+                "\nContacto='" + Contacto + '\'' +
+                "}\n";
     }
 
     public Long getId() {

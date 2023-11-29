@@ -30,16 +30,16 @@ public class BloqueEstanteria {
     @Override
     public String toString() {
         return "BloqueEstanteria{" +
-                "Largo=" + Largo +
-                ", Altura=" + Altura +
-                ", Profundidad=" + Profundidad +
-                ", PesoMaximo=" + PesoMaximo +
-                ", PesoActual=" + PesoActual +
-                ", Fila=" + Fila +
-                ", Columna=" + Columna +
-                ", Cara=" + Cara +
-                ", contenedores=" + contenedores +
-                '}';
+                "\nLargo=" + Largo +
+                "\nAltura=" + Altura +
+                "\nProfundidad=" + Profundidad +
+                "\nPesoMaximo=" + PesoMaximo +
+                "\nPesoActual=" + PesoActual +
+                "\nFila=" + Fila +
+                "\nColumna=" + Columna +
+                "\nCara=" + Cara +
+                "\ncontenedores=" + contenedores +
+                "\n}";
     }
 
     public List<Contenedor> getContenedores() {

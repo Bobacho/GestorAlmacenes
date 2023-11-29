@@ -26,14 +26,14 @@ public class TransaccionExternaUnitaria {
     @Override
     public String toString() {
         return "DETALLES{" +
-                "Secuencia='" + Secuencia + '\'' +
-                ", Cantidad=" + Cantidad +
-                ", UnidadMedida='" + UnidadMedida + '\'' +
-                ", longitud=" + longitud +
-                ", profundidad=" + profundidad +
-                ", altura=" + altura +
-                ", contenedor=" + contenedor +
-                '}';
+                "\nSecuencia='" + Secuencia + '\'' +
+                "\n Cantidad=" + Cantidad +
+                "\n UnidadMedida='" + UnidadMedida + '\'' +
+                "\n longitud=" + longitud +
+                "\n profundidad=" + profundidad +
+                "\n altura=" + altura +
+                "\n contenedor=" + contenedor +
+                "\n}";
     }
 
     public Long getId() {

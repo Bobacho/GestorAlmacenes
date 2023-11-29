@@ -23,12 +23,12 @@ public class Emisor {
     @Override
     public String toString() {
         return "Emisor{" +
-                "client=" + client +
-                ", empleado=" + empleado +
-                ", proveedor=" + proveedor +
-                ", TipoEmisor='" + TipoEmisor + '\'' +
-                ", Documentos=" + Documentos +
-                '}';
+                "\nCliente=" + client +
+                "\nempleado=" + empleado +
+                "\nproveedor=" + proveedor +
+                "\nTipoEmisor='" + TipoEmisor + '\'' +
+                "\nDocumentos=" + Documentos +
+                "}\n";
     }
 
     public List<Documento> getDocumentos() {

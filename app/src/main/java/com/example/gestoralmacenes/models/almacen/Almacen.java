@@ -27,11 +27,11 @@ public class Almacen {
     public String toString() {
         return "Almacen{" +
                 "NumeroEstanterias=" + NumeroEstanterias +
-                ", Ubicacion='" + Ubicacion + '\'' +
-                ", licencia=" + licencia +
-                ", empleados=" + empleados +
-                ", estanterias=" + estanterias +
-                '}';
+                "\nUbicacion='" + Ubicacion + '\'' +
+                "\n licencia=" + licencia +
+                "\n empleados=" + empleados +
+                "\n estanterias=" + estanterias +
+                "}\n";
     }
 
     public List<Estanteria> getEstanterias() {

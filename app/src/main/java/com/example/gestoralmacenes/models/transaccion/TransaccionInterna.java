@@ -22,13 +22,13 @@ public class TransaccionInterna extends Transaccion{
     @Override
     public String toString() {
         return "TransaccionInterna{" +
-                "transacciones=" + transacciones +
-                ", Almacen=" + Almacen +
-                ", Encargado=" + Encargado +
-                ", FechaInicio=" + FechaInicio +
-                ", FechaFin=" + FechaFin +
-                ", TipoTransaccion='" + TipoTransaccion + '\'' +
-                '}';
+                "\nFechaInicio=" + FechaInicio +
+                "\nFechaFin=" + FechaFin +
+                "\ntransacciones=" + transacciones +
+                "\nAlmacen=" + Almacen +
+                "\nEncargado=" + Encargado +
+                "\nTipoTransaccion='" + TipoTransaccion + '\'' +
+                "\n}";
     }
 
     public Almacen getAlmacen() {

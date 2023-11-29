@@ -10,6 +10,7 @@ import com.example.gestoralmacenes.dao.DaoTransaccion;
 import com.example.gestoralmacenes.models.transaccion.Transaccion;
 import com.example.gestoralmacenes.models.transaccion.TransaccionExterna;
 import com.example.gestoralmacenes.models.transaccion.TransaccionInterna;
+import com.example.gestoralmacenes.models.transaccion.TransaccionInternaUnitaria;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,8 +25,6 @@ public class TransaccionActivity extends AppCompatActivity {
         try {
             setContentView(R.layout.activity_transaccion);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.tablaTransaccionU);
-            TextView text = new TextView(this);
-            text.setTextSize(16);
             DaoTransaccion daoTransaccion = new DaoTransaccion(this);
             List<TransaccionInterna> transaccionInternaList = new ArrayList<>();
             List<TransaccionExterna> transaccionExternaList = new ArrayList<>();
@@ -33,7 +32,10 @@ public class TransaccionActivity extends AppCompatActivity {
                 transaccionInternaList = daoTransaccion.getTransaccionInterna();
                 for (TransaccionInterna interna : transaccionInternaList) {
                     if (interna.getId() == getIntent().getLongExtra("Id", 0)) {
+                        TextView text=new TextView(this);
+                        text.setTextSize(16);
                         text.setText(interna.toString());
+                        linearLayout.addView(text);
                         break;
                     }
                 }
@@ -41,12 +43,14 @@ public class TransaccionActivity extends AppCompatActivity {
                 transaccionExternaList = daoTransaccion.getTransaccionesExternas();
                 for (TransaccionExterna externa : transaccionExternaList) {
                     if (externa.getId() == getIntent().getLongExtra("Id", 0)) {
+                        TextView text=new TextView(this);
+                        text.setTextSize(16);
                         text.setText(externa.toString());
+                        linearLayout.addView(text);
                         break;
                     }
                 }
             }
-            linearLayout.addView(text);
         }
         catch (Exception e)
         {

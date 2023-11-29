@@ -16,9 +16,9 @@ public class LicenciaDeFuncionamiento {
     @Override
     public String toString() {
         return "LicenciaDeFuncionamiento{" +
-                "Municipalidad='" + Municipalidad + '\'' +
-                ", FechaDeEmision=" + FechaDeEmision +
-                '}';
+                "\nMunicipalidad='" + Municipalidad + '\'' +
+                "\nFechaDeEmision=" + FechaDeEmision +
+                "}\n";
     }
 
     public Long getId() {

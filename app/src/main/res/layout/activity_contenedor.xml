@@ -7,8 +7,26 @@
         android:layout_height="match_parent"
         tools:context=".activities.ContenedorActivity">
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:orientation="vertical" android:id="@+id/contenedorTabla" android:visibility="visible"
-                  tools:layout_editor_absoluteX="16dp" app:layout_constraintBottom_toBottomOf="parent"
-                  app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.086"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <SearchView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content" android:id="@+id/contenedorSearchView">
+            </SearchView>
+            <Button
+                    android:text="Buscar por ubicacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/buscadorUbicacion" android:layout_weight="1"
+                    android:onClick="moveToBuscadorUbicacion"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical" android:id="@+id/contenedorTabla" android:visibility="visible"
+        />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

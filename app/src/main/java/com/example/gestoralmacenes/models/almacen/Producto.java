@@ -29,13 +29,13 @@ public class Producto {
     public String toString() {
         return "Producto{" +
                 "UnidadMedida='" + UnidadMedida + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", Nombre='" + Nombre + '\'' +
-                ", Descripcion='" + Descripcion + '\'' +
-                ", Garantia=" + Garantia +
-                ", tarifarios=" + tarifarios +
-                ", tarifarioActual=" + tarifarioActual +
-                '}';
+                "\ntipo='" + tipo + '\'' +
+                "\n Nombre='" + Nombre + '\'' +
+                "\n Descripcion='" + Descripcion + '\'' +
+                "\n Garantia=" + Garantia +
+                "\n tarifarios=" + tarifarios +
+                "\n tarifarioActual=" + tarifarioActual +
+                "}\n";
     }
 
     public Long getId() {

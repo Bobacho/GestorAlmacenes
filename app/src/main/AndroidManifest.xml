@@ -18,11 +18,16 @@
             android:theme="@style/Theme.GestorAlmacenes"
             tools:targetApi="31">
         <activity
+                android:name=".activities.UsuarioDetalleActivity"
+                android:exported="false"
+                android:parentActivityName=".activities.UsuarioActivity"/>
+        <activity
+                android:name=".activities.BuscadorUbicacion"
+                android:exported="false"/>
+        <activity
                 android:name=".activities.GraficosIMPActivity"
                 android:exported="false"
                 android:parentActivityName=".activities.GraficosActivity"/>
-        />
-
 
         <meta-data
                 android:name="com.google.android.actions"
@@ -38,6 +43,9 @@
                     android:resource="@xml/file_paths"/>
         </provider>
 
+        <activity
+                android:name=".activities.FechaActivity"
+                android:exported="false"/>
         <activity
                 android:name=".activities.TransaccionActivity"
                 android:exported="false"

@@ -32,16 +32,16 @@ public class Empleado {
     @Override
     public String toString() {
         return "Empleado{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Rango='" + Rango + '\'' +
-                ", DescripcionResponsabilidad='" + DescripcionResponsabilidad + '\'' +
-                ", usuario=" + usuario +
-                ", DNI='" + DNI + '\'' +
-                ", NivelEstudio='" + NivelEstudio + '\'' +
-                ", Telefono='" + Telefono + '\'' +
-                ", Correo='" + Correo + '\'' +
-                ", transacciones=" + transacciones +
-                '}';
+                "\nNombre='" + Nombre + '\'' +
+                "\nRango='" + Rango + '\'' +
+                "\nDescripcionResponsabilidad='" + DescripcionResponsabilidad + '\'' +
+                "\nusuario=" + usuario +
+                "\nDNI='" + DNI + '\'' +
+                "\nNivelEstudio='" + NivelEstudio + '\'' +
+                "\nTelefono='" + Telefono + '\'' +
+                "\nCorreo='" + Correo + '\'' +
+                "\ntransacciones=" + transacciones +
+                "}\n";
     }
 
     public List<Transaccion> getTransacciones() {

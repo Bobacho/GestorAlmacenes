@@ -47,10 +47,10 @@ public class DaoUsuario {
     public List<Usuario> obtenerUsuariosSQLite()
     {
         db=connector.getReadableDatabase();
-        List<Usuario> retornar = new ArrayList<>();
         try {
-            Cursor cursor = db.rawQuery("select * from Usuario", null);
+            Cursor cursor = db.rawQuery("select * from Usuario;", null);
             if (cursor.moveToFirst()) {
+                List<Usuario> retornar = new ArrayList<>();
                 do {
                     Usuario usuario = new Usuario(
                             cursor.getLong(0),
@@ -64,14 +64,16 @@ public class DaoUsuario {
                     );
                     retornar.add(usuario);
                 } while (cursor.moveToNext());
+                return retornar;
             }
-            cursor.close();
-            db.close();
+            else {
+                return null;
+            }
         }catch (Exception e)
         {
             Log.e("Error",e.toString());
         }
-        return retornar;
+        return null;
     }
     public void limpiarTabla()
     {

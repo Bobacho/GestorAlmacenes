@@ -18,9 +18,9 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Telefono='" + Telefono + '\'' +
-                '}';
+                "\nNombre='" + Nombre + '\'' +
+                "\nTelefono='" + Telefono + '\'' +
+                "}\n";
     }
 
     public void setId(Long id) {

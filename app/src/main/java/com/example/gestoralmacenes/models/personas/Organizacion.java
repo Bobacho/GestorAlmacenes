@@ -20,12 +20,12 @@ public class Organizacion {
     @Override
     public String toString() {
         return "Organizacion{" +
-                "Nombre='" + Nombre + '\'' +
-                ", Ruuc='" + Ruuc + '\'' +
-                ", TipoOrganizacion='" + TipoOrganizacion + '\'' +
-                ", Tamaño=" + Tamaño +
-                ", Sector='" + Sector + '\'' +
-                '}';
+                "\nNombre='" + Nombre + '\'' +
+                "\nRuuc='" + Ruuc + '\'' +
+                "\nTipoOrganizacion='" + TipoOrganizacion + '\'' +
+                "\nTamaño=" + Tamaño +
+                "\nSector='" + Sector + '\'' +
+                "}\n";
     }
 
     public Long getId() {
